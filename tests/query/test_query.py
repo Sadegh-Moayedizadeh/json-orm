@@ -1,6 +1,7 @@
-from json_orm.query import Query
 import json
 from pathlib import Path
+
+from json_orm.query import Query
 
 
 def test_create(tmp_path: Path) -> None:
