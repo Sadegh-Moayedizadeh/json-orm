@@ -1,8 +1,9 @@
 import json
 from pathlib import Path
 
-from json_orm.model import create_base
 from pytest import raises
+
+from json_orm.model import create_base
 
 
 def test_get_method_should_raise_error_if_there_is_no_entry(

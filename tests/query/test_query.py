@@ -1,6 +1,7 @@
 import json
-from pytest import raises
 from pathlib import Path
+
+from pytest import raises
 
 from json_orm.query import Query
 
