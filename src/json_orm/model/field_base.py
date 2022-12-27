@@ -15,17 +15,17 @@ class FieldBase(ABC, Generic[FieldType]):
         primary_key: bool = False
     ) -> None:
         self._public_name = None
-        self._value = None
+        self._obj_to_value = {}
 
     @abstractmethod
     def type_factory(self, value: Any) -> FieldType:
         pass
 
     def __get__(self, obj: ModelBase, obj_type: Type[ModelBase]) -> FieldType:
-        return self._value
+        return self._obj_to_value[obj]
 
     def __set__(self, obj: ModelBase, value: Any) -> None:
-        self._value = self.type_factory(value)
+        self._obj_to_value[obj] = self.type_factory(value)
 
     def __set_name__(self, owner: ModelBase, name: str) -> None:
         self._public_name = name

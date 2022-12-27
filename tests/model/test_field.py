@@ -54,3 +54,20 @@ def test_having_two_fields_of_the_same_type_should_not_override_one_another() ->
     # Assert
     assert obj.first_char == '1'
     assert obj.second_char == '2'
+
+
+def test_modifying_a_field_should_not_affect_other_instances() -> None:
+    # Arrange
+    class ClassWithCharField:
+        char = CharField()
+
+    first_instance = ClassWithCharField()
+    second_instance = ClassWithCharField()
+
+    # Act
+    first_instance.char = 1
+    second_instance.char = 2
+
+    # Assert
+    assert first_instance.char == '1'
+    assert second_instance.char == '2'
