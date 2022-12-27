@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from abc import ABC
 from typing import Type
 
 from json_orm.query import Query
@@ -10,8 +11,8 @@ def create_base(database_path) -> Type[ModelBase]:
     return ModelBase
 
 
-class ModelBase:
-    table_name: str = None
+class ModelBase(ABC):
+    table_name: str
     query: Query
 
     def update(self) -> None:

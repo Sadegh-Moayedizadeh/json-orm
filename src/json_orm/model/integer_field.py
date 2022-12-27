@@ -1,4 +1,5 @@
 from typing import Any
+
 from json_orm.model.field_base import FieldBase
 
 

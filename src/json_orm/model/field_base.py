@@ -1,7 +1,7 @@
-from typing import TypeVar, Optional, Generic, Type, Any
-from json_orm.model.model_base import ModelBase
 from abc import ABC, abstractmethod
+from typing import Any, Generic, Optional, Type, TypeVar
 
+from json_orm.model.model_base import ModelBase
 
 FieldType = TypeVar('FieldType')
 
