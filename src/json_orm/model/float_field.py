@@ -1,9 +1,7 @@
 from typing import Any
+from json_orm.model.field_base import FieldBase
 
 
-class FloatField:
-    def __get__(self, obj, obj_type=None) -> str:
-        return obj._float_field
-
-    def __set__(self, obj, value: Any) -> None:
-        obj._float_field = float(value)
+class FloatField(FieldBase[float]):
+    def type_factory(self, value: Any) -> float:
+        return float(value)

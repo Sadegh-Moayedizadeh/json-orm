@@ -1,12 +1,7 @@
 from typing import Any
+from json_orm.model.field_base import FieldBase
 
 
-class CharField:
-    def __init__(self) -> None:
-        pass
-
-    def __get__(self, obj, obj_type=None) -> str:
-        return obj._char_field
-
-    def __set__(self, obj, value: Any) -> None:
-        obj._char_field = str(value)
+class CharField(FieldBase[str]):
+    def type_factory(self, value: Any) -> str:
+        return str(value)

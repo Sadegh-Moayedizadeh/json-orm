@@ -1,9 +1,7 @@
 from typing import Any
+from json_orm.model.field_base import FieldBase
 
 
-class IntegerField:
-    def __get__(self, obj, obj_type=None) -> str:
-        return obj._integer_field
-
-    def __set__(self, obj, value: Any) -> None:
-        obj._integer_field = int(value)
+class IntegerField(FieldBase[int]):
+    def type_factory(self, value: Any) -> int:
+        return int(value)
