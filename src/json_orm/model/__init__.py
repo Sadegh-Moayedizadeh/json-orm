@@ -3,3 +3,4 @@ from .float_field import FloatField as FloatField
 from .integer_field import IntegerField as IntegerField
 from .model_base import ModelBase as ModelBase
 from .model_base import create_base as create_base
+from .field_base import FieldBase as FieldBase

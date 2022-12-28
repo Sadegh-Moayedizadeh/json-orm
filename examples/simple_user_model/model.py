@@ -1,5 +1,4 @@
-from json_orm.model import create_base, CharField
-
+from json_orm.model import CharField, create_base
 
 Base = create_base('examples/simple_user_model/database')
 
