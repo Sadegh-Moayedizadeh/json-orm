@@ -1,8 +1,10 @@
-from pathlib import Path
-from json_orm.model import create_base, CharField
-from json_orm.migration import create_table, drop_table
 import json
+from pathlib import Path
+
 from pytest import raises
+
+from json_orm.migration import create_table, drop_table
+from json_orm.model import CharField, create_base
 
 
 def test_create_table(tmp_path: Path) -> None:
