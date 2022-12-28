@@ -1,6 +1,6 @@
 from typing import Any
 
-from json_orm.model.field_base import FieldBase
+from json_orm.field.field_base import FieldBase
 
 
 class IntegerField(FieldBase[int]):

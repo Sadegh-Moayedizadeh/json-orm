@@ -3,7 +3,8 @@ import os
 from pathlib import Path
 from typing import Dict, Type, Union
 
-from json_orm.model import FieldBase, ModelBase
+from json_orm.model import ModelBase
+from json_orm.field import FieldBase
 
 
 def create_table(
