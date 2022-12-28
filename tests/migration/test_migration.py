@@ -1,7 +1,8 @@
 from pathlib import Path
 from json_orm.model import create_base, CharField
-from json_orm.migration import create_table
+from json_orm.migration import create_table, drop_table
 import json
+from pytest import raises
 
 
 def test_create_table(tmp_path: Path) -> None:
@@ -27,4 +28,22 @@ def test_create_table(tmp_path: Path) -> None:
 
 
 def test_drop_table(tmp_path: Path) -> None:
-    pass
+    # Arrange
+    database_path = tmp_path / 'database'
+    database_path.mkdir()
+
+    table_path = database_path / 'table.json'
+    table_path.touch()
+
+    with open(table_path, 'w') as f:
+        json.dump([{'some_field': 'field_type'}], f)
+
+    class ModelMock:
+        table_name = 'table'
+
+    # Act
+    drop_table(ModelMock, database_path)
+
+    # Assert
+    with raises(FileNotFoundError):
+        open(table_path)

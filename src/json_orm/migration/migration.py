@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Union, Type, Dict
 import json
+import os
 
 from json_orm.model import ModelBase, FieldBase
 
@@ -25,5 +26,11 @@ def _create_schema_from_model(model_class: Type[ModelBase]) -> Dict[str, str]:
     }
 
 
-def drop_table(model_class: Type[ModelBase]) -> None:
-    pass
+def drop_table(
+    model_class: Type[ModelBase],
+    database_path: Union[str, Path]
+) -> None:
+    database_path = database_path if isinstance(database_path, Path) \
+        else Path(database_path)
+    table_path = database_path / (model_class.table_name + '.json')
+    os.remove(table_path)
