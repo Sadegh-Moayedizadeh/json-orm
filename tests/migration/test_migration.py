@@ -3,9 +3,9 @@ from pathlib import Path
 
 from pytest import raises
 
+from json_orm.field import CharField
 from json_orm.migration import create_table, drop_table
 from json_orm.model import create_base
-from json_orm.field import CharField
 
 
 def test_create_table(tmp_path: Path) -> None:

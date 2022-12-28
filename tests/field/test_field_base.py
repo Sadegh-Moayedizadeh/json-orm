@@ -3,7 +3,6 @@ from typing import Any
 from json_orm.field import FieldBase
 
 
-
 def test_having_two_fields_of_the_same_type_should_not_override_one_another() -> None:  # noqa: E501
     # Arrange
     class ConcreteField(FieldBase):
